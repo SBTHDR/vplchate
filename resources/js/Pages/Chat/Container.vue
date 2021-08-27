@@ -10,7 +10,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-3">
                     <MessageContainer />
-                    <InputMessage />
+                    <InputMessage :room="currentRoom"/>
                 </div>
             </div>
         </div>
@@ -46,6 +46,14 @@
             },
             setRoom(room) {
                 this.currentRoom = room
+                this.getMessages()
+            },
+            getMessages() {
+                axios.get('/chat/room/' + this.currentRoom.id + '/messages')
+                    .then(res => {
+                        this.messages = res.data
+                    })
+                    .catch(err => console.log(err))
             }
         },
         created() {

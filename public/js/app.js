@@ -20544,6 +20544,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     setRoom: function setRoom(room) {
       this.currentRoom = room;
+      this.getMessages();
+    },
+    getMessages: function getMessages() {
+      var _this2 = this;
+
+      axios.get('/chat/room/' + this.currentRoom.id + '/messages').then(function (res) {
+        _this2.messages = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   },
   created: function created() {
@@ -24451,7 +24461,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MessageContainer), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputMessage)])])])];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MessageContainer), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputMessage, {
+        room: $data.currentRoom
+      }, null, 8
+      /* PROPS */
+      , ["room"])])])])];
     }),
     _: 1
     /* STABLE */

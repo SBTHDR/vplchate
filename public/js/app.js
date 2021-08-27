@@ -20536,8 +20536,18 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/chat/rooms').then(function (res) {
         _this.chatRooms = res.data;
+
+        _this.setRoom(res.data[0]);
+      })["catch"](function (err) {
+        return console.log(err);
       });
+    },
+    setRoom: function setRoom(room) {
+      this.currentRoom = room;
     }
+  },
+  created: function created() {
+    this.getRooms();
   }
 });
 

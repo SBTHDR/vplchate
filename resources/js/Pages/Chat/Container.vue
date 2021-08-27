@@ -40,8 +40,16 @@
                 axios.get('/chat/rooms')
                     .then(res => {
                         this.chatRooms = res.data
+                        this.setRoom(res.data[0])
                     })
+                    .catch(err => console.log(err))
+            },
+            setRoom(room) {
+                this.currentRoom = room
             }
+        },
+        created() {
+            this.getRooms()
         }
     }
 </script>

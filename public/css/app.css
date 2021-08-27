@@ -1755,14 +1755,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
-.text-indigo-400 {
-	--tw-text-opacity: 1;
-	color: rgba(129, 140, 248, var(--tw-text-opacity));
-}
-.text-green-200 {
-	--tw-text-opacity: 1;
-	color: rgba(167, 243, 208, var(--tw-text-opacity));
-}
 .underline {
 	text-decoration: underline;
 }

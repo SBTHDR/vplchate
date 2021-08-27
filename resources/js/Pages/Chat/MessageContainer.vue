@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <div v-for="message in messages" :key="message.id">
-            <MessageItem :message="message"/>
+    <div class=" h-screen relative">
+        <div class="absolute bottom-0">
+            <div v-for="message in messages" :key="message.id">
+                <MessageItem :message="message"/>
+            </div>
         </div>
     </div>
 </template>
